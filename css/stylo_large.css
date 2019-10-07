@@ -1,0 +1,863 @@
+/* ---- header -----*/
+header{
+	position:fixed;
+	top:0px; 
+	left:76px;
+	width:90%;
+	height:100px;
+	background-color:#4F4F4F;
+	border-radius:10px 5px 40px 0px;
+	border-style:solid;
+	border-bottom-color:#FF8C00;
+	border-right-color:#FF8C00;
+	z-index:30;
+}
+
+/* ---- main ----*/
+main{
+	width:90%;
+	height:auto;
+	margin:auto;
+}
+
+section{
+	width:100%;
+	height:auto;
+}
+
+#menu-lateral{
+	position:fixed;
+	top:100px;
+	width:20%;
+	height:500px;
+	background-color:#4F4F4F;
+	float:left;
+	border-radius:5px 5px 40px 0px;
+	border-style:solid;
+	border-right-color:#FF8C00;
+	border-bottom-color:#FF8C00;
+}
+
+#menu-lateral nav{
+	background-color:#808080;
+	width:80%;
+	height:80%;
+	margin:auto;
+	margin-top:20px;
+	border-style: solid;
+	border-color:#FF8C00;
+	border-radius:20px;
+}
+
+#menu-lateral nav ul{
+	margin-top:50px;
+	margin-left: 0px;
+	margin-right: 40px;
+}
+
+#menu-lateral nav ul li{
+	list-style: none;
+	margin-top: 10px;
+	display: block;
+
+}
+
+
+#menu-lateral nav ul li a{
+	text-decoration:none;
+	font-family: Arial;
+	color: black;
+	display: block;
+	background-color:#A9A9A9;
+	padding: 5px 10px;
+}
+
+#menu-lateral nav ul li a:hover{
+	background-color: #FF8C00;
+}
+
+#menu-lateral li ul{
+	display: none;
+}
+
+#menu-lateral li:hover ul{
+	display: block;
+	position: relative;
+	margin: 0 0 -6px 0;
+}
+
+#menu-lateral li:hover li{
+	float: none;
+	font-size: 12px;
+	width: 92px;
+	margin: 2px;
+
+}
+
+#menu-lateral li:hover a{
+	background: #FF8C00;
+	color: #333;
+	
+}
+
+#menu-lateral li:hover li a:hover{
+	background: #222;
+	color:#FF8C00; 
+}
+/* --- Pagina de  cadastro --- */
+.conteudo{
+	background-color:whitesmoke;
+	margin-top:98px;
+	width:76%;
+	height:500px;
+	float:right;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.conteudo div{
+	width:80%;
+	height:95%;
+	margin:auto;
+	margin-top:10px;
+	background-color:#FF8C00;
+	border-style:solid;
+	border-color:#FF8C00;
+	border-radius:20px;
+}
+
+.conteudo div h2{
+	margin-top:0px;
+	font-family:Arial;
+	text-align: center;
+	margin-bottom:0px;
+	background-color:#DCDCDC;
+	border-radius:20px 20px 0px 0px;
+}
+
+.conteudo div div{
+	width:90%;
+	height:80%;
+	margin:auto;
+	margin-top:32px;
+	background-color:#DCDCDC;
+	border-style:solid;
+	border-color:#FF8C00;
+	border-radius:20px;
+}
+
+.conteudo .camada-1 .camada-2 form .indice-form{
+	border-radius:0px;
+	border-style:none;
+	width:20%;
+	height: 75%;
+	margin-top:30px;
+	float:left;
+	margin-left:100px;
+}
+
+.conteudo .camada-1 .camada-2 form .indice-form .div-h{
+	border-radius:20px 0px 0px 20px;
+	border-style:none;
+	margin-left:0px;
+	width:100%;
+	height:40px;
+	margin-top:25px;
+	background-color:#808080;
+}
+
+.conteudo .camada-1 .camada-2 form .indice-form .div-h h3{
+	margin-top:0px;
+	text-align: left;
+	margin-bottom:0px;
+	padding-top:8px;
+	margin-left:15px;
+	font-family: Arial;
+}
+
+.conteudo .camada-1 .camada-2 form .form-cadastro{
+	border-radius:0px;
+	border-style:none;
+	width:50%;
+	height: 75%;
+	margin-top:30px;
+	float:left;
+}
+
+.conteudo .camada-1 .camada-2 form .form-cadastro div{
+	border-radius:0px 20px 20px 0px;
+	border-style:none;
+	margin-left:1px;
+	width:100%;
+	height:40px;
+	margin-top:25px;
+	background-color:whitesmoke;
+}
+
+.conteudo .camada-1 .camada-2 form .form-cadastro div input{
+	width:90%;
+	height:80%;
+	border:none;
+	margin-top:4px;
+	margin-left:2px;
+	background-color:whitesmoke;
+	font-size:15px;
+}
+
+.conteudo .camada-1 .camada-2 form .form-cadastro div textArea{
+    width: 100%;
+    height: 80px;
+}
+
+.conteudo .camada-1 .camada-2 form #botao-cadastro{
+	width:26.66666666666667%;
+	height:30px;
+	margin:auto;
+	margin-left:70px;
+	margin-top:50px;
+	border-radius:0px;
+	border-style:none;
+	float:left;
+	
+}
+
+.conteudo div div form #botao-cadastro button{
+	width:100px;
+	height:30px;
+	margin-left:50px;
+	
+}
+.conteudo div div #botao-cancelar{
+	width:26.66666666666667%;
+	height:30px;
+	margin:auto;
+	margin-top:50px;
+	border-radius:0px;
+	border-style:none;
+	float:left;
+	
+}
+
+.conteudo div div #botao-cancelar button{
+	width:100px;
+	height:30px;
+	margin-left:50px;
+	
+}
+
+.conteudo div div form #botao-excluir{
+	width:26.66666666666667%;
+	height:30px;
+	margin:auto;
+	margin-left:0px;
+	margin-top:50px;
+	border-radius:0px;
+	border-style:none;
+	float:left;
+	
+}
+
+.conteudo div div form #botao-excluir button{
+	width:100px;
+	height:30px;
+	margin-left:50px;
+	
+}
+
+/* --- final pagina de cadastro ---*/
+
+.conteudo-maior{
+    background-color:whitesmoke;
+    margin-top:85px;
+    width:74%;
+    height:550px;
+    float:right;
+    margin-left:2px;
+    margin-right:2px;
+    
+}
+
+.input-data{
+    width: 120px;
+    height:30px;
+}
+
+.conteudo-maior h2,h3 {
+    font-family: Arial;
+    color:#333;
+    text-align: center;
+    background-color: #DCDCDC;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 5px;
+}
+
+.conteudo-maior .camada-1-cont-m{
+    width: 100%;
+    height: 90%;
+    background-color:#FF8C00;
+    border-radius: 20px;
+}
+
+.conteudo-maior .camada-1-cont-m .camada-2-cont-m{
+    margin: auto;
+    width: 98%;
+    height: 6%;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
+
+.conuteudo_relatorio{
+    background-color:white;
+    width: 33%;
+    height: auto;
+    float: left;
+    margin-left: 0.1666666666666667%;
+    margin-right: 0.1666666666666667%;
+    border-radius: 5px;
+}
+
+.conuteudo_relatorio h2, h3{
+   font-size: 20px;
+   margin:0 0;
+   background-color: whitesmoke;
+   border-radius: 5px;
+   padding-top: 4.5px;
+   padding-bottom: 4.5px;
+}
+
+.conuteudo_relatorio h5{
+    margin:0;
+}
+.altura-10{
+    margin-top: 1px;
+}
+
+.altura-10 p{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 7px;
+    height: 10px;
+    padding: 0;
+}
+
+.altura-ajustada{
+    height: 30px;
+}
+
+.altura-ajustada p{
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+    margin:7px 0;
+}
+
+
+.conteudo-maior .camada-1-cont-m .camada-3-cont-m{
+    background-color:#DCDCDC; 
+    margin: auto;
+    width: 98%;
+    height: 60%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+/* --- Pagina login ----*/
+
+.base-central{
+	width:100%;
+	height:500px;
+	margin:auto;
+	background-color:#696969;
+
+}
+
+.base-central h1{
+	font-family:Arial;
+	text-align:center;
+	margin:auto;
+	padding: 5px 0;
+	background-color:#FF8C00;
+}
+
+.base-central #img-login{
+	width:100%;
+}
+
+.base-central #img-login img{
+	width:100%;
+}
+
+.base-central #base-login{
+	width:40%;
+	height:45%;
+	margin:auto;
+	margin-top:20px;
+	border-style:solid;
+	border-color:#FF8C00;
+	border-radius:10px;
+	
+}
+
+.base-central #base-login p{
+	float:left;
+	margin-left:220px;
+}
+.base-central #base-login p a{
+	font-family:verdana;
+	text-decoration:none;
+	color:#FF8C00;
+}
+
+.base-central #base-login form .form-login {
+	margin-top:30px;
+}
+
+.base-central #base-login form .form-login h3{
+	font-family:Arial;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:140px;
+	float:left;
+	background-color:#A9A9A9;
+	width:80px;
+	height:30px;
+	padding-top:5px;
+	padding-left:10px;
+	padding-bottom:0px;
+	border-radius:10px 5px 5px 10px;
+}
+
+.base-central #base-login form .form-login input{
+    font-family: Arial;
+    font-size:18px;
+    text-align: center;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:3px;
+	background-color:white;
+	width:170px;
+	height:30px;
+	border:none;
+	border-radius:5px 10px 10px 5px;
+}
+
+.base-central #base-login form #botao-logar{
+	width:50%;
+	height:40px;
+	margin-left:140px;
+	margin-top:15px;
+	float:left;
+}
+
+.base-central #base-login form #botao-logar button{
+	font-size:20px;
+	width:100%;
+	height:100%;
+	margin:auto;
+	background-color:#FF8C00;
+	border-radius:10px;
+}
+/* --- final Pagina login ----*/
+
+/*--- Pagina de Dados Paciante ---*/
+.conteudo-duplo{
+	background-color:whitesmoke;
+	margin-top:98px;
+	width:38%;
+	height:500px;
+	float:right;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.conteudo-duplo .camada-1{
+	width:90%;
+	height:95%;
+	margin:auto;
+	margin-top:10px;
+	background-color:#FF8C00;
+	border-style:solid;
+	border-color:#FF8C00;
+	border-radius:20px;
+}
+
+.conteudo-duplo .camada-1 h2{
+	margin-top:0px;
+	font-family:Arial;
+	text-align: center;
+	margin-bottom:0px;
+	background-color:#DCDCDC;
+	border-radius:20px 20px 0px 0px;
+}
+
+.conteudo-duplo .camada-1 form{
+	margin-left:50px;
+}
+
+.conteudo-duplo .camada-1 form input{
+	width:200px;
+	height:25px;
+}
+.conteudo-duplo .camada-1 form button{
+	width:100px;
+	height:30px;
+}
+
+.conteudo-duplo .camada-1 a{
+	font-family:verdana;
+	font-size:14px;
+	text-decoration:none;
+	margin-left:5px;
+	color:black;
+}
+
+.conteudo-duplo .camada-1 a:hover{
+	opacity:0.5;
+}
+
+.conteudo-duplo .camada-1 .camada-2{
+	width:90%;
+	height:80%;
+	margin:auto;
+	margin-top:32px;
+	background-color:#DCDCDC;
+	border-style:solid;
+	border-color:#FF8C00;
+	border-radius:20px;
+}
+
+.conteudo-duplo .camada-1 .camada-2 #lista-aluno{
+	background-color:none;
+	width:90%;
+	height:95%;
+	margin:auto;
+	margin-top:5px;
+	border-radius:0px;
+	border-style:none;
+	overflow: auto;
+}
+.conteudo-duplo .camada-1 .camada-2 #lista-aluno table{
+	width:95%;
+	margin:auto;
+}
+
+.conteudo-duplo .camada-1 .camada-2 #lista-aluno table td{
+	background-color:#A9A9A9;
+	padding:5px;
+}
+
+.conteudo-duplo .camada-1 .camada-2 #lista-aluno table td a{
+	font-family: Arial;
+	text-decoration: none;
+	margin-left:20px;
+	color:black;
+}
+
+.conteudo-duplo .camada-1 .camada-2 .nome-dados{
+	width:35%;
+	height:90%;
+	margin-top:1px;
+	margin-left:15px;
+	float:left;
+	border-radius:0px;
+	border-style:none;
+	
+}
+
+.conteudo-duplo .camada-1 .camada-2 .nome-dados div{
+	width:100%;
+	background-color:#A9A9A9;
+	border-style:none;
+	height:50px;
+	margin-top:18px;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.conteudo-duplo .camada-1 .camada-2 .nome-dados div h3{
+	font-family:Arial;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:12px;
+	margin-left:12px;
+}
+
+.conteudo-duplo .camada-1 .camada-2 .nome-dados #status{
+	background-color:#FF8C00;
+	margin-top:12px;
+	height:20px;
+}
+
+
+.conteudo-duplo .camada-1 .camada-2 .conteudo-dados{
+	width:58%;
+	height:90%;
+	margin-top:1px;
+	margin-left:0px;
+	float:left;
+	border-radius:0px;
+	border-style:none;
+	
+}
+
+.conteudo-duplo .camada-1 .camada-2 .conteudo-dados div{
+	width:100%;
+	background-color:whitesmoke;
+	border-style:none;
+	height:50px;
+	margin-top:18px;
+	border-radius: 0px 20px 20px 0px;
+	
+}
+
+.conteudo-duplo .camada-1 .camada-2 .conteudo-dados div p{
+	font-family:Arial;
+	padding-top:12px;
+	margin-left:12px;
+}
+.conteudo-duplo .camada-1 .camada-2 .conteudo-dados #data-status{
+	background-color:#FFA500;
+	margin-top:12px;
+	height:20px;
+}
+
+.conteudo-duplo .camada-1 .camada-2 .conteudo-dados #data-status p{
+	padding-top:3px;
+	margin-bottom:0px;
+	margin-left:12px;
+	font-size:12px;
+}
+
+#Status-pgt{
+	width: 90%;
+	height: auto;
+	margin:auto;
+	margin-top: 5px;
+	background-color: white;
+	border-radius: 20px;
+}
+
+#ver-ativa{
+	width: 100%;
+	font-family: Arial;
+	color: #333;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	border-radius: 20px;
+}
+
+#ver-venc{
+	width: 100%;
+	font-family: Arial;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	background-color: red;
+	border-radius: 20px;
+}
+/* --- cadastro de pagamentos ---*/
+#cad-pagametos{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-style: none;
+    border-radius: 0px;
+}
+
+#cad-pagametos h4{
+    width:85%;
+    font-family: Arial;
+    color:#333;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom:-20px;
+    background-color:whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+
+#input-cad-paciente{
+    font-family: Arial;
+    font-size: 20px;
+    color:#333;
+    width: 85%;
+    height: auto;
+    margin-top:2px;
+    border-style: none;
+    border-radius: 0px;
+    background-color: #A9A9A9;
+    border-radius: 10px;
+}
+#input-cad-paciente p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+#cad-pagametos .cad-data-pgt{
+    font-family: Arial;
+    color:#333;
+    width: 39%;
+    height: auto;
+    float: left;
+    border-style: none;
+    border-radius: 0px;
+    background-color: #A9A9A9;
+    margin-left: 50px;
+    border-radius: 10px;
+    
+}
+
+#cad-pagametos .cad-data-pgt p{
+    margin-left: 5px;
+}
+
+#cad-pagametos .cad-data-pgt h5{
+    color:#333;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    margin-left: 50px;
+}
+
+#cad-pagametos .cad-data-pgt p{
+     margin-left: 50px;
+}
+
+#cad-pagametos .cad-data-pgt p input{
+    width: 75%;
+    font-family: Arial;
+    font-size: 17px;
+    height: 30px;
+}
+
+#cad-pagametos .valores-pgt{
+    font-family: Arial;
+    color:#333;
+    width: 39%;
+    height: auto;
+    float: left;
+    border-style: none;
+    border-radius: 0px;
+    background-color: #A9A9A9;
+    margin-left: 50px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+#cad-pagametos .valores-pgt p{
+    margin-left: 50px;
+}
+
+#cad-pagametos .valores-pgt h5{
+    margin-top: 5px;
+    margin-bottom: -10px;
+    margin-left: 50px;
+}
+
+
+#cad-pagametos .valores-pgt p input{
+    width: 75%;
+    font-family: Arial;
+    font-size: 17px;
+    color:#333;
+    text-align: center;
+    height: 30px;
+
+}
+
+/*--- fim cadastro de pagamentos*/
+
+/* --- Dados pagamentos -----*/
+#pgt-paciente{
+    font-family: Arial;
+    width: 98%;
+    margin: auto;
+    margin-top:0px;
+    background-color: #DCDCDC;
+}
+
+#pgt-paciente p{
+    margin: 0;
+    padding: 5px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.cont-pgt-aluno{
+    width: 98%;
+    margin: auto;
+    margin-top: 5px;
+    height: 400px;
+    background-color: #DCDCDC;
+    overflow: auto;
+}
+
+.dados-pgt-aluno{
+    font-family: Arial;
+    width: 30%;
+    float: left;
+    margin-top: 1px;
+    margin-left:0.5px;
+    margin-right: 0.5px;
+    background-color: white;
+}
+.dados-pgt-aluno p{
+    text-align: center;
+}
+
+#link-pgt{
+ clear:both; 
+ width:90.2%; 
+ margin:auto; 
+ background-color:whitesmoke;
+}
+#link-pgt ul{
+    font-family: Verdana;
+    list-style: none;
+    padding: 5px 5px;
+}
+#link-pgt ul li{
+    display: inline;
+    border-left: #333 solid 1px;
+    margin-left: 5px;
+}
+
+#link-pgt ul li:last-child{
+    border-right: #333 solid 1px;
+}
+
+#link-pgt ul li a{
+    padding: 0px 8px;
+    text-decoration: none;
+    color: #696969;
+}
+#link-pgt ul li a:hover{
+    color: #FFA500;
+}
+
+#link-cad{
+   text-align:center;
+   margin: 0; 
+   font-family:Verdana;
+}
+#link-cad a{
+    text-decoration: none;
+    color:#333;
+}
+#link-cad a:hover{
+    color:whitesmoke;
+}
+/*------ fim dados pagamentos ---*/
+
+
+
+/* --- footer ---*/
+footer{
+	
+}
