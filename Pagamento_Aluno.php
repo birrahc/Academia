@@ -1,10 +1,16 @@
 <?php
+    require_once './controle.php';
     require('./app/config.inc.php');
     $pgt = new pagamentos();
     $pgtDao = new pagamentos();
+    $Aluno = new aluno();
+    $AlunoDao = new aluno();
+    
     if(isset($_GET['aluno'])):
         $pgt->setId_Aluno($_GET['aluno']);
         $pgtDao->listaPgtAluno($pgt, 0);
+        $Aluno->setId_Aluno($_GET['aluno']);
+        $AlunoDao->dadosAluno($Aluno, 3);
     else:
         header("Location: alunos.php");
     endif;
@@ -28,7 +34,7 @@
                             <li><a href="alunos.php">Alunos</a>
                                 <ul>
                                     <li><a href="alunos.php">Ativos</a></li>
-                                    <li><a href="">Inativos</a></li>
+                                    <li><a href="AlunosInativos.php">Inativos</a></li>
                                 </ul>
                             </li>
                             
@@ -48,7 +54,7 @@
                                     <li><a href="CadastrarEvento.php">Evento</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Sair</a></li>
+                            <li><a href="logout.php">Sair</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -73,7 +79,7 @@
                             $pgtDao->listaPgtAluno($pgt,2);
                         ?>
                     </div>
-                        <p id="link-cad"><a href="cadastrarPagamentos.php?aluno=<?php echo $pgtDao->getId_Aluno()?>">Cadastrar pagamento</a></p>     
+                        <p id="link-cad"><a href="cadastrarPagamentos.php?aluno=<?php echo $AlunoDao->getId_Aluno()?>">Cadastrar pagamento</a></p>     
                     </div>
                     
                 </div>

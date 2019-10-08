@@ -13,8 +13,9 @@
  */
 class pagamentos extends aluno{
     private $id_pgt;
-     private $aluno_pgt;
+    private $aluno_pgt;
     private $data_pgt;
+    private $data_pgt_inicial;
     private $data_pgt_final;
     private $ref_inicial;
     private $ref_final;
@@ -36,8 +37,12 @@ class pagamentos extends aluno{
     function getData_pgt() {
         return $this->data_pgt;
     }
+    
+    function getData_pgt_inicial() {
+        return $this->data_pgt_inicial;
+    }
 
-    function getData_pgt_final() {
+        function getData_pgt_final() {
         return $this->data_pgt_final;
     }
 
@@ -84,7 +89,11 @@ class pagamentos extends aluno{
         $this->data_pgt = $data_pgt;
     }
     
-    function setData_pgt_final($data_pgt_final) {
+    function setData_pgt_inicial($data_pgt_inicial) {
+        $this->data_pgt_inicial = $data_pgt_inicial;
+    }
+
+        function setData_pgt_final($data_pgt_final) {
         $this->data_pgt_final = $data_pgt_final;
     }
 
@@ -111,6 +120,28 @@ class pagamentos extends aluno{
     
     function setSituacao_pgt($Situacao_pgt) {
         $this->Situacao_pgt = $Situacao_pgt;
+    }
+    
+    public function PgtEspecifico(pagamentos $pgt){
+        $this->Tipo=0;
+        
+        $coluna5=['id_pgt'=>'id_pgt',
+                  'id_aluno'=>'id_aluno',
+                  'aluno_pgt'=>'aluno_pgt',
+                  'nome'=>'nome',
+                  'data_pgt'=>'data_pgt',
+                  'ref_incial'=>'ref_incial',
+                  'ref_final'=>'ref_final',
+                  'valor'=>'valor',
+                  'desconto'=>'desconto'
+                ];
+           
+        $Termos5 =" inner join aluno a on aluno_pgt = a.id_aluno"
+                . " where id_pgt='{$pgt->getId_pgt()}'";
+             
+                $ColumTable5 = [];
+                    
+       $this->ExRead("pagamentos p ", $coluna5, $Termos5, $ColumTable5, $this->Tipo);
     }
     
     public function DataRelatorio(){
@@ -140,7 +171,7 @@ class pagamentos extends aluno{
         
         $ColumTable5 = [];
         $Termos5 ="inner join aluno a on aluno_pgt = a.id_aluno "
-                . "WHERE data_pgt BETWEEN ('{$pgtdata->data_pgt}') AND ('{$pgtdata->data_pgt_final}'); ";
+                . "WHERE data_pgt BETWEEN ('{$pgtdata->getData_pgt_inicial()}') AND ('{$pgtdata->getData_pgt_final()}'); ";
         $this->ExRead("pagamentos ", $coluna5, $Termos5, $ColumTable5, $this->Tipo);
        
     }
@@ -199,7 +230,7 @@ class pagamentos extends aluno{
                 . "<div class='dados-pgt-aluno'><p>Total pago: ". number_format($this->getValor_total(), 2,',','.')."</p></div>"
                 . "<div id='link-pgt'>"
                 . "<ul>"
-                    . "<li><a href=''>Editar</a></li>"
+                    . "<li><a href='cadastrarPagamentos.php?id_pgt={$this->getId_pgt()}'>Editar</a></li>"
                     . "<li><a href=''>Excluir</a></li>"
                 . "</ul>"
                 . "</div>";

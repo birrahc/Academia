@@ -1,9 +1,10 @@
 <!doctype html>
 <?php
+    require_once './controle.php';
     require('./app/config.inc.php');
         $pgt = new pagamentos();
         if(isset($_POST['data_inicial']) && isset($_POST['data_final'])):
-            $pgt->setData_pgt($_POST['data_inicial']);
+            $pgt->setData_pgt_inicial($_POST['data_inicial']);
             $pgt->setData_pgt_final($_POST['data_final']);
         endif;
         
@@ -28,7 +29,7 @@
                     <li><a href="alunos.php">Alunos</a>
                         <ul>
                             <li><a href="">Ativos</a></li>
-                            <li><a href="">Inativos</a></li>
+                            <li><a href="AlunosInativos.php">Inativos</a></li>
                         </ul>
                     </li>
                         <li><a href="RelatoriPagamentos.php">Pagamentos</a>
@@ -45,7 +46,7 @@
                                 <li><a href="CadastrarEvento.php">Evento</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Sair</a></li>
+                        <li><a href="logout.php">Sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -62,11 +63,12 @@
                                     <select name="data_inicial" style="width:150px; height: 22px; font-size: 18px; border: none;">
                                     <?php
                                     if($pgt->getData_pgt()):
-                                        echo"<option = '{$pgt->getData_pgt()}'>".date("d/m/Y", strtotime($pgt->getData_pgt()))."</option>";
-                                     $pgt->DataRelatorio();
-                                    else:
-                                       $pgt->DataRelatorio(); 
+                                        echo"<option value = '{$pgt->getData_pgt_inicial()}'>".date("d/m/Y", strtotime($pgt->getData_pgt_inicial()))."</option>";
+                                     //$pgt->DataRelatorio();
+                                    //else:
+                                       
                                     endif;
+                                    $pgt->DataRelatorio(); 
                                     ?>
                                 </select>
                                 </h3>
@@ -76,7 +78,7 @@
                                     <select name="data_final" style="width:150px; height: 22px; font-size: 18px; border: none;">
                                     <?php
                                     if($pgt->getData_pgt_final()):
-                                        echo"<option = '{$pgt->getData_pgt_final()}'>".date("d/m/Y", strtotime($pgt->getData_pgt_final()))."</option>";
+                                        echo"<option value = '{$pgt->getData_pgt_final()}'>".date("d/m/Y", strtotime($pgt->getData_pgt_final()))."</option>";
                                     else:
                                         $pgt->DataRelatorio();
                                     endif;
@@ -99,7 +101,7 @@
                         
                         <div class="camada-3-cont-m">
                         <?php
-                        if($pgt->getData_pgt()<= $pgt->getData_pgt_final()):
+                        if($pgt->getData_pgt_inicial()<= $pgt->getData_pgt_final()):
                            $pgtDao->Relatorio($pgt);
                         else:
                             echo"<script> alert('A Data inicial não pode ser maior que a data Final')</script>";

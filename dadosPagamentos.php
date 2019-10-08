@@ -1,9 +1,10 @@
 <?php
-
+require_once './controle.php';
 require ('./app/config.inc.php');
 
 $pgt = new pagamentos();
 $Cadastrar = new cadastro();
+$AtualizarPgt = new UpdateDados();
 
 if(isset($_POST['aluno_pgt'])):
     $pgt->setId_Aluno($_POST['aluno_pgt']);
@@ -32,9 +33,13 @@ endif;
 if(isset($_POST['id_pgt'])):
     $pgt->setId_pgt($_POST['id_pgt']);
 endif;
+
+if(isset($_POST['aluno_cod'])):
+    $AlunoCod = $_POST['aluno_cod'];
+endif;
     if($pgt->getId_pgt()>=1):
-        /*$AtualizarPac->AtualizarPaciente($paciente);
-        header("Location: PacienteDados.php?idpac={$paciente->getId_Pessoa()}");*/
+        $AtualizarPgt->AtualizarPagamentos($pgt);
+        header("Location: Pagamento_aluno.php?aluno={$AlunoCod}");
         
     elseif($pgt->getId_pgt()<1):
         $Cadastrar->CadastrarPagamentos($pgt);

@@ -1,17 +1,28 @@
 <?php
+    require_once './controle.php';
     require('./app/config.inc.php');
     $aluno = new aluno();
     $alunoDao = new aluno();
     $pgt = new pagamentos();
     $pgtDao = new pagamentos();
-    if(isset($_GET['aluno'])):
+    
+    $TituloPagina = "Cadastrar Pagamento";
+    $Botao = "Cadastrar";
+    if(isset($_GET['id_pgt'])):
+        $pgt->setId_pgt($_GET['id_pgt']);
+        $pgtDao->PgtEspecifico($pgt);
+        $TituloPagina = "Editar Pagamento";
+        $Botao = "Editar";
+    elseif(isset($_GET['aluno'])):
         $aluno->setId_Aluno($_GET['aluno']);
         $alunoDao->dadosAluno($aluno, 3);
     endif;
-    if(isset($_GET['pgt'])):
-       else:
+    
+    if(!isset($_GET['id_pgt']) || $pgtDao->getData_pgt()=='0000-00-00'):
         $pgtDao->setData_pgt(date('Y-m-d'));
+        $pgtDao->setRef_inicial(date('Y-m-d'));
     endif;
+    
 ?>
 <!doctype html>
 <html>
@@ -31,7 +42,7 @@
                     <li><a href="alunos.php">Alunos</a>
                         <ul>
                             <li><a href="alunos.php">Ativos</a></li>
-                            <li><a href="">Inativos</a></li>
+                            <li><a href="AlunosInativos.php">Inativos</a></li>
                         </ul>
                     </li>
                         <li><a href="">Pagamentos</a>
@@ -48,7 +59,7 @@
                                 <li><a href="CadastrarEvento.php">Evento</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Sair</a></li>
+                        <li><a href="logout.php">Sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -56,7 +67,7 @@
                     
                     <div class="camada-1">
                         
-                        <h2> Cadastro de Pagamentos</h2>
+                        <h2> <?php echo $TituloPagina ?></h2>
 
                         <div class="camada-2">
                             <form method="POST" action="dadosPagamentos.php">
@@ -67,9 +78,12 @@
                                             <?php
                                              if(isset($_GET['aluno'])):
                                                 echo $alunoDao->getNome();
+                                             elseif(isset($_GET['id_pgt'])):
+                                                 echo $pgtDao->getNome();
                                             endif;
                                             ?>
                                         </p>
+                                        <input type="hidden" name="aluno_cod" value="<?php echo $pgtDao->getId_Aluno()?>">
                                         <input type="hidden" name="aluno_pgt" value="<?php echo $alunoDao->getId_Aluno()?>">
                                         <input type="hidden" name="id_pgt" value="<?php echo $pgtDao->getId_pgt()?>">
                                         <input type="hidden" name="data_pgt" value="<?php echo $pgtDao->getData_pgt()?>">
@@ -78,11 +92,11 @@
                                     <h4>Pagamento referente aos meses:</h4>
 
                                     <div class="cad-data-pgt">
-                                         <h5>De: </h5> <p><input type="date" name="ref_incial" value="<?php echo $pgtDao->getData_pgt()?>"></p>
+                                        <h5>De: </h5> <p><input type="date" name="ref_incial" value="<?php echo $pgtDao->getRef_inicial()?>"></p>
                                     </div>
                                     
                                     <div class="cad-data-pgt">
-                                         <h5>Até: </h5> <p><input type="date" name="ref_final"></p>
+                                        <h5>Até: </h5> <p><input type="date" name="ref_final" value="<?php echo $pgtDao->getRef_final()?>"></p>
                                     </div>
                                     
                                     <div style="clear: both; border-style: none; border-radius: none;"></div>
@@ -91,18 +105,27 @@
                                         <h5>Valor:</h5> <p><input type="text" name="valor" value="<?php echo number_format($pgtDao->getValor(), 2, ',', '.') ?>"></p>
                                     </div>
                                     <div class="valores-pgt">
-                                         <h5>Desconto:</h5> <p> <input type="text" name="desconto"></p>
+                                        <h5>Desconto:</h5> <p> <input type="text" name="desconto" value="<?php echo number_format($pgtDao->getDesconto(), 2, ',', '.') ?>"></p>
                                     </div>
                                    
                                 </div>		
-                                <div id="botao-cadastro"><button type="submit">Cadastrar</button></div>
+                                <div id="botao-cadastro"><button type="submit"><?php echo $Botao?></button></div>
 							
                             </form>
 							
                             <div id="botao-cancelar"><button>Cancelar</button></div>
-							
-                            <form>
-				<div id="botao-excluir"><button>excluir</button></div>
+                            <?php
+                              if($Botao=="Editar"):
+                                    $ativacao="";
+                                else:
+                                    $ativacao="disabled";
+                                endif;
+                            ?> 
+                            <form action="DeletaDados.php" method="POST">
+                                <input type="hidden" name="tipo" value="1">
+                                <input type="hidden" name="aluno" value="<?php echo $pgtDao->getId_Aluno()?>">
+                                <input type="hidden" name="pgt" value="<?php echo $pgtDao->getId_pgt()?>">
+                                <div id="botao-excluir"><button type="submit"<?php echo $ativacao ?>>excluir</button></div>
                             </form>		
 							
 			</div>

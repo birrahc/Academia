@@ -1,3 +1,6 @@
+<?php 
+    require_once './controle.php';
+?>
 <!doctype html>
 <html>
     <head>
@@ -16,7 +19,7 @@
                     <li><a href="alunos.php">Alunos</a>
                         <ul>
                             <li><a href="alunos.php">Ativos</a></li>
-                            <li><a href="">Inativos</a></li>
+                            <li><a href="AlunosInativos.php">Inativos</a></li>
                         </ul>
                     </li>
                         <li><a href="#">Pagamentos</a>
@@ -33,7 +36,7 @@
                                 <li><a href="CadastrarEvento.php">Evento</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Sair</a></li>
+                        <li><a href="logout.php">Sair</a></li>
                 </ul>
             </nav>
 		</div>
@@ -51,14 +54,14 @@
                         <div class="div-h"><h3 style="background-color:#808080;">Titulo</h3></div>
                         <div class="div-h"><h3 style="background-color:#808080;">Data</h3></div>
                         <div class="div-h"><h3 style="background-color:#808080;">Hora</h3></div>
-                        <div class="div-h"><h3 style="background-color:#808080;">descriçao</h3></div>
+                        <div class="div-h"><h3 style="background-color:#808080;">Descriçao</h3></div>
     				</div>	
 							
 				    <div class="form-cadastro">
                         <div> <input type="text" name="nome"></div>
                         <div> <input type="date" name="nascimento"></div>
                         <div> <input type="time" name="telefone"></div>
-                        <div> <textarea> Descrição</textarea></div>
+                        <div> <textarea name="" placeholder="Descrição do Evento" required></textarea></div>
                     </div>			
 								
                     <div id="botao-cadastro"><button type="submit">Cadastrar</button></div>

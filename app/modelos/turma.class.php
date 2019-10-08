@@ -17,6 +17,7 @@ class turma extends aluno{
     private $Situacao;
     private $Turma_nome;
     private $Mensalidade;
+    private $pagina;
     
     function getId_turma() {
         return $this->Id_turma;
@@ -35,6 +36,11 @@ class turma extends aluno{
         return $this->Mensalidade;
     }
     
+    function getPagina() {
+        return $this->pagina;
+    }
+
+        
     function setId_turma_aluno($id_turma_aluno) {
         $this->id_turma_aluno = $id_turma_aluno;
     }
@@ -55,9 +61,34 @@ class turma extends aluno{
     function setMensalidade($Mensalidade) {
         $this->Mensalidade = $Mensalidade;
     }
+    
+    
+    public function ListaInativa(turma $inativo) {
+        
+        $this->pagina = "AlunosInativos.php";
+        $Termos2 = "inner join aluno a on alt.aluno= a.id_aluno
+                    inner join turma t on alt.turma = t.id_turma
+                    inner join status_turma st on alt.situacao_aluno=st.id_st
+                    where situacao='Inativo' and nome like '{$inativo->getNome()}%' "
+                    . "ORDER BY nome ";
+                         
+        $coluna2=[ 'id_al_tur'=>'id_al_tur',
+                        'id_turma'=>'id_turma',
+                        'id_aluno'=>'id_aluno',
+                        'nome'=>'nome',
+                        'turma_nome'=>'turma_nome',
+                        'nascimento'=>'nascimento',
+                        'telefone'=>'telefone',
+                        'email'=>'email',
+                        'valor'=>'valor',
+                        'situacao'=>'situacao'];
+         $ColumTable2=[];
 
-     public function listaAlunoTurma(turma $id){
-        $this->dadosAluno($id,1);
+        $this->ExRead('aluno_turma alt', $coluna2, $Termos2, $ColumTable2, 1);
+    }
+    public function listaAlunoTurma(turma $id){
+         $this->pagina = "alunos.php";
+        $this->dadosAlunoTurma($id,1);
     }
     
      public function dadosAlunoTurma(turma $Aluno, $Tipo) {
@@ -107,6 +138,7 @@ class turma extends aluno{
     }
 
     public function Syntax() {
+        
         if($this->Tipo==1):
             $alunopgt = new pagamentos();
             $pagt = new pagamentos();
@@ -116,7 +148,7 @@ class turma extends aluno{
                    $this->setId_Aluno($col['id_aluno']);
                    $alunopgt->setId_Aluno($col['id_aluno']);
                    $this->setNome($col['nome']);
-                    echo"<td><a href='alunos.php?aluno={$this->getId_Aluno()}'>{$this->getNome()}</a>  </td>{$pagt->listaPgtAluno($alunopgt, 6)}"
+                    echo"<td><a href='{$this->getPagina()}?aluno={$this->getId_Aluno()}'>{$this->getNome()}</a>  </td>{$pagt->listaPgtAluno($alunopgt, 6)}"
               . "</tr>";
                endwhile;
             echo"</table>";

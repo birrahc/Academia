@@ -125,7 +125,7 @@ endif;
 
             <div class="camada-1">
 
-			<h2> Alunos </h2>
+			<h2> Alunos Inativos</h2>
 						
 			<form action="#" method="POST">
                             <input type="text" name="pesquisar"/>
@@ -136,7 +136,7 @@ endif;
 
                     <div id="lista-aluno">
                         <?php
-                            $turmaDao->listaAlunoTurma($turma);
+                            $turmaDao->ListaInativa($turma);
                         ?>
     				
                     </div>

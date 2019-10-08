@@ -203,6 +203,9 @@ section{
 	background-color:whitesmoke;
 	font-size:15px;
 }
+.conteudo .camada-1 .camada-2 form .form-cadastro div textarea{
+    resize: none;
+}
 
 .conteudo .camada-1 .camada-2 form .form-cadastro div textArea{
     width: 100%;
@@ -262,6 +265,24 @@ section{
 	height:30px;
 	margin-left:50px;
 	
+}
+
+#radio-situacao{
+    width: 70%;
+    margin: auto;
+    margin-top: 5px;
+    border: none;
+    background-color: white;
+}
+
+#radio-situacao p,input{
+    margin: 0;
+}
+
+#radio-situacao p{
+    font-family: Arial;
+    text-align: center;
+    
 }
 
 /* --- final pagina de cadastro ---*/
@@ -557,19 +578,18 @@ section{
 }
 
 .conteudo-duplo .camada-1 .camada-2 .nome-dados{
-	width:35%;
+	width:32%;
 	height:90%;
 	margin-top:1px;
-	margin-left:15px;
+	margin-left:5px;
 	float:left;
 	border-radius:0px;
 	border-style:none;
-	
 }
 
 .conteudo-duplo .camada-1 .camada-2 .nome-dados div{
 	width:100%;
-	background-color:#A9A9A9;
+	background: none;
 	border-style:none;
 	height:50px;
 	margin-top:18px;
@@ -578,10 +598,14 @@ section{
 
 .conteudo-duplo .camada-1 .camada-2 .nome-dados div h3{
 	font-family:Arial;
+        font-size: 18px;
+        text-align: center;
 	margin-top:0px;
 	margin-bottom:0px;
-	padding-top:12px;
-	margin-left:12px;
+	padding-top:15px;
+        padding-bottom: 15px;
+        border-radius: 20px 0 0 20px;
+        
 }
 
 .conteudo-duplo .camada-1 .camada-2 .nome-dados #status{
@@ -592,19 +616,17 @@ section{
 
 
 .conteudo-duplo .camada-1 .camada-2 .conteudo-dados{
-	width:58%;
+	width:66%;
 	height:90%;
 	margin-top:1px;
 	margin-left:0px;
 	float:left;
 	border-radius:0px;
 	border-style:none;
-	
 }
 
 .conteudo-duplo .camada-1 .camada-2 .conteudo-dados div{
 	width:100%;
-	background-color:whitesmoke;
 	border-style:none;
 	height:50px;
 	margin-top:18px;
@@ -613,9 +635,13 @@ section{
 }
 
 .conteudo-duplo .camada-1 .camada-2 .conteudo-dados div p{
+        background-color:whitesmoke;
 	font-family:Arial;
-	padding-top:12px;
-	margin-left:12px;
+	padding-top:16px;
+        padding-bottom: 17px;
+        padding-left: 2px;
+	margin-left:0px;
+        border-radius: 0 20px 20px 0;
 }
 .conteudo-duplo .camada-1 .camada-2 .conteudo-dados #data-status{
 	background-color:#FFA500;
