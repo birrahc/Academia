@@ -29,7 +29,7 @@ and open the template in the editor.
 				<div class="form-login"><h3>Senha</h3><input type="password" name="senha"/></div>
 				<div id="botao-logar"><button type="submit">Logar</button></div>
                             </form> 
-                            <p> <a href="#"> Cadastrar Login</a> </p>
+                            <p> <a href="CadastrarLogin.php"> Cadastrar Login</a> </p>
 			</div>
 			<div id="img-login">
 					<img src="imagens/simbolo-login.jpg">

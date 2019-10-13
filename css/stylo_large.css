@@ -29,9 +29,8 @@ section{
 	position:fixed;
 	top:100px;
 	width:20%;
-	height:500px;
+	height:450px;
 	background-color:#4F4F4F;
-	float:left;
 	border-radius:5px 5px 40px 0px;
 	border-style:solid;
 	border-right-color:#FF8C00;
@@ -106,7 +105,6 @@ section{
 }
 /* --- Pagina de  cadastro --- */
 .conteudo{
-	background-color:whitesmoke;
 	margin-top:98px;
 	width:76%;
 	height:500px;
@@ -195,13 +193,14 @@ section{
 }
 
 .conteudo .camada-1 .camada-2 form .form-cadastro div input{
-	width:90%;
-	height:80%;
-	border:none;
-	margin-top:4px;
-	margin-left:2px;
-	background-color:whitesmoke;
-	font-size:15px;
+    font-family: Arial;
+    width:90%;
+    height:80%;
+    border:none;
+    margin-top:4px;
+    margin-left:2px;
+    background-color:whitesmoke;
+    font-size:18px;
 }
 .conteudo .camada-1 .camada-2 form .form-cadastro div textarea{
     resize: none;
@@ -280,6 +279,7 @@ section{
 }
 
 #radio-situacao p{
+    margin-top: 10px;
     font-family: Arial;
     text-align: center;
     
@@ -288,7 +288,6 @@ section{
 /* --- final pagina de cadastro ---*/
 
 .conteudo-maior{
-    background-color:whitesmoke;
     margin-top:85px;
     width:74%;
     height:550px;
@@ -485,8 +484,7 @@ section{
 
 /*--- Pagina de Dados Paciante ---*/
 .conteudo-duplo{
-	background-color:whitesmoke;
-	margin-top:98px;
+        margin-top:98px;
 	width:38%;
 	height:500px;
 	float:right;
@@ -566,7 +564,7 @@ section{
 }
 
 .conteudo-duplo .camada-1 .camada-2 #lista-aluno table td{
-	background-color:#A9A9A9;
+	background-color:white;
 	padding:5px;
 }
 
@@ -878,9 +876,74 @@ section{
 }
 #link-cad a:hover{
     color:whitesmoke;
+    
 }
 /*------ fim dados pagamentos ---*/
 
+/*---- cadastro login -------*/
+#geral{
+    width: 100%;
+    height: auto;
+    background-color: #696969;
+   
+}
+#geral h1{
+    font-family: Arial;
+    text-align: center;
+    background-color: #FFA500;
+    padding: 20px 0;
+    border-radius: 0 0 20px 20px;
+}
+
+.central{
+    width: 30%;
+    height: auto;
+    margin: auto;
+    background-color: #A9A9A9;
+    padding: 30px 0;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    
+}
+
+.central .central-input{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    padding: 20px 0;
+   
+}
+.central .central-input input{
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    margin: 15px 0;
+}   
+
+.central .central-input button{
+    width: 101%;
+    font-size: 18px;
+    color: gray;
+    height: 35px;
+    margin: 15px 0;
+} 
+#rodape{
+    background-color: #333;
+    border-top:#FFA500 solid; 
+}
+#rodape p{
+    font-family: verdana;
+    color: whitesmoke;
+    text-align: center;
+    padding: 27px 0;
+}
+
+#rodape hr{
+    
+}
+/*-----Fim cadastro Login ----*/
 
 
 /* --- footer ---*/

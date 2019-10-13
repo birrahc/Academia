@@ -20,6 +20,9 @@
     </head>
 	
     <body>
+        <header>
+            <div id="banner"></div>
+	</header>
 	
 	<main>
             <section>
@@ -144,9 +147,6 @@
 	<footer>
 		
 	</footer>
-		
-	<header>
-            <div id="banner"></div>
-	</header>
+	
     </body>
 </html>

@@ -140,7 +140,7 @@ class turma extends aluno{
     public function Syntax() {
         
         if($this->Tipo==1):
-            $alunopgt = new pagamentos();
+            $alunopgt = new aluno();
             $pagt = new pagamentos();
             echo"<table>"
               . "<tr>";
@@ -148,7 +148,22 @@ class turma extends aluno{
                    $this->setId_Aluno($col['id_aluno']);
                    $alunopgt->setId_Aluno($col['id_aluno']);
                    $this->setNome($col['nome']);
-                    echo"<td><a href='{$this->getPagina()}?aluno={$this->getId_Aluno()}'>{$this->getNome()}</a>  </td>{$pagt->listaPgtAluno($alunopgt, 6)}"
+                   $pagt->statusPgt($alunopgt);
+                   $cor="";
+                   if($pagt->getSituacao_pgt()):
+                       if($pagt->getAluno_pgt() == $this->getId_Aluno()):
+                        if($pagt->getRef_final() < date('Y-m-d')):
+                            $cor="red";
+                        elseif($pagt->getRef_final() >= date('Y-m-d')):
+                            $cor="green";
+                        endif;
+                        else:
+                          $cor="orange";  
+                       endif;
+                    else:
+                        $cor="orange";
+                   endif;
+                   echo"<td style='background-color:{$cor}; border-radius:20px 0 0 20px;'></td><td><a href='{$this->getPagina()}?aluno={$this->getId_Aluno()}'>{$this->getNome()}</a></td>"
               . "</tr>";
                endwhile;
             echo"</table>";

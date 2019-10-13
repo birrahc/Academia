@@ -29,6 +29,7 @@
     <head>
 	<title></title>
         <meta charset="utf-8">
+        <script type="text/javascript" src="Script/validaCamposPgt.js"></script>
 	<link rel="stylesheet" href="css/stylo_large.css">
     </head>
 	
@@ -70,7 +71,7 @@
                         <h2> <?php echo $TituloPagina ?></h2>
 
                         <div class="camada-2">
-                            <form method="POST" action="dadosPagamentos.php">
+                            <form name="cadastrarPgt" method="POST" action="dadosPagamentos.php" onsubmit="return validaPgt();">
                                 <div id="cad-pagametos">
                                     <div id="input-cad-paciente">
                                         <p>
@@ -78,6 +79,7 @@
                                             <?php
                                              if(isset($_GET['aluno'])):
                                                 echo $alunoDao->getNome();
+                                                
                                              elseif(isset($_GET['id_pgt'])):
                                                  echo $pgtDao->getNome();
                                             endif;
@@ -108,12 +110,31 @@
                                         <h5>Desconto:</h5> <p> <input type="text" name="desconto" value="<?php echo number_format($pgtDao->getDesconto(), 2, ',', '.') ?>"></p>
                                     </div>
                                    
-                                </div>		
-                                <div id="botao-cadastro"><button type="submit"><?php echo $Botao?></button></div>
+                                </div>
+                                
+                                <?php
+                                if($Botao=="Editar"):
+                                ?>
+                                    <div id="botao-cadastro"><button Onclick="return ConfirmEdit();" type="submit"><?php echo $Botao?></button></div>
+                                    <script>
+                                        function ConfirmEdit(){
+                                                var x = confirm("Deseja realmente Editar esse Pagamento ?");
+                                                    if (x){
+                                                        return true;
+                                                    }else{
+                                                        return false;
+                                                    }
+                                            }
+                                    </script>
+                                <?php
+                                else:
+                                     echo"<div id='botao-cadastro'><button type='submit'>$Botao</button></div>";
+                                endif;
+                                ?>
 							
                             </form>
 							
-                            <div id="botao-cancelar"><button>Cancelar</button></div>
+                            <div id="botao-cancelar"><a href="alunos.php"><button>Cancelar</button></a></div>
                             <?php
                               if($Botao=="Editar"):
                                     $ativacao="";
@@ -125,8 +146,19 @@
                                 <input type="hidden" name="tipo" value="1">
                                 <input type="hidden" name="aluno" value="<?php echo $pgtDao->getId_Aluno()?>">
                                 <input type="hidden" name="pgt" value="<?php echo $pgtDao->getId_pgt()?>">
-                                <div id="botao-excluir"><button type="submit"<?php echo $ativacao ?>>excluir</button></div>
-                            </form>		
+                                <div id="botao-excluir"><button Onclick="return ConfirmDelete();" type="submit"<?php echo $ativacao ?>>excluir</button></div>
+                            </form>
+                            
+                            <script>
+                            function ConfirmDelete(){
+                                    var x = confirm("Deseja realmente deletar esse Pagamento ?");
+                                        if (x){
+                                            return true;
+                                        }else{
+                                            return false;
+                                        }
+                                }
+                            </script>
 							
 			</div>
 

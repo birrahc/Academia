@@ -25,6 +25,7 @@
     <head>
 	<title></title>
         <meta charset="utf-8">
+        <script type="text/javascript" src="Script/validaCamposAluno.js"></script>
 	<link rel="stylesheet" href="css/stylo_large.css">
     </head>
 	
@@ -67,7 +68,7 @@
 
                 <div class="camada-2">
 
-                    <form method="POST" action="dadosAluno.php">
+                    <form name="cadastrarAluno" method="POST" action="dadosAluno.php" onsubmit="return validacao();">
 
                         <div class="indice-form" style="margin-top: 5px;">
                             <div class="div-h"><h3 style="background-color:#808080;">Nome</h3></div>
@@ -82,7 +83,7 @@
                         <div> <input type="text" name="nome" value="<?php echo $alunoDao->getNome()?>"></div>
                         <div> <input type="date" name="nascimento" value="<?php echo $alunoDao->getNascimento()?>"></div>
                         <div> <input type="text" name="telefone" value="<?php echo $alunoDao->getTelefone()?>"></div>
-                        <div> <input type="text" name="email" value="<?php echo $alunoDao->getEmail()?>"></div>
+                        <div> <input type="email" name="email" value="<?php echo $alunoDao->getEmail()?>"></div>
                     </div>
                         <div style="clear: both; border:none;"></div>
                     <div id="radio-situacao"> 
@@ -91,12 +92,32 @@
                             Inativo <input type="radio" name="situacao" value="2">
                         </p>
                     </div>
+                     
+                    <?php
+                        if($Botao=="Editar"):
+                    ?>
+                        <div id="botao-cadastro"><button Onclick="return ConfirmEdit();" type="submit"><?php echo $Botao?></button></div>
+                        <script>
+                            function ConfirmEdit(){
+                                var x = confirm("Deseja realmente Editar esse Aluno ?");
+                                    if (x){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                            }
+                                    </script>
+                                <?php
+                                else:
+                                     echo"<div id='botao-cadastro'><button type='submit'>$Botao</button></div>";
+                                endif;
+                                ?>
 								
-                    <div id="botao-cadastro"><button type="submit"><?php echo $Botao ?></button></div>
+                    
 							
                     </form>
 							
-                            <div id="botao-cancelar"><button>Cancelar</button></div>
+                        <div id="botao-cancelar"><a href="alunos.php"><button>Cancelar</button></a></div>
 							
                             <form action="DeletaDados.php" method="POST">
                                 <?php
@@ -108,8 +129,19 @@
                                 ?>
                                 <input type="hidden" name="tipo" value="2">
                                 <input type="hidden" name="id_aluno" value="<?php echo $alunoDao->getId_Aluno() ?>">
-                                <div id="botao-excluir"><button type="submit"<?php echo $ativacao ?>>excluir</button></div>
-                            </form>		
+                                <div id="botao-excluir"><button Onclick="return ConfirmDelete();" type="submit"<?php echo $ativacao ?>>excluir</button></div>
+                            </form>
+                            
+                            <script>
+                                function ConfirmDelete(){
+                                    var x = confirm("Deseja realmente deletar esse Aluno ?");
+                                        if (x){
+                                            return true;
+                                        }else{
+                                            return false;
+                                        }
+                                }
+                                </script>
 							
 			</div>
                         

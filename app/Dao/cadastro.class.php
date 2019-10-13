@@ -7,6 +7,13 @@
 class cadastro {
     
     private $UltimoRegistro;
+    private $Verificacao;
+    
+    function getVerificacao() {
+        return $this->Verificacao;
+    }
+
+        
     function getUltimoRegistro() {
         return $this->UltimoRegistro;
     }
@@ -14,17 +21,40 @@ class cadastro {
      //==============================================================================================
     //--------------- Cadastro de Login ----------------------
     //==============================================================================================
-    public function CadastrarLogin(login $cad_log){
-        
-        $DadosLogin=['login'=>$cad_log->getNome(), 
-                     'senha'=>$cad_log->getSenha() 
-                    ];
+    public function CadastrarUsuario(login $cad_log){
+        $verifica = new login();
+        $verifica->VerificaUsuario($cad_log);
+       
+        if(!$verifica->getVerificaLogin()):
+            $DadosLogin=['login'=>$cad_log->getNome(), 
+                         'senha'=>$cad_log->getSenha() 
+                        ];
         
         $CadastrarLogin= new InsercaoBanco();
         $CadastrarLogin->ExecutInserir("login", $DadosLogin);
+       
+        else:
+           echo"<script> alert('Login ja cadastrado');</script>";
+        endif;
+      
+        //var_dump($verificaUsuario->VerificaUsuario($Usuario));
+    }
+    
+    public function CadastrarLogin(login $login) {
+        $verifica = new login();
+        
+        $verifica->VerificaUsuario($login);
+        
+        if(!$verifica->getVerificaLogin()):
+            $this->CadastrarUsuario($login);
+            $this->Verificacao=true;
+        else:
+            echo"<script> alert('Usuario ja cadastrado!!!');</script>";
+        endif;
+        
     }
 
-        
+
     //============= Cadastro de Alunos ===========//
     public function CadastrarAluno(aluno $aluno) {
         $DadosAluno=['nome'=>$aluno->getNome(), 

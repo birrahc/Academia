@@ -25,6 +25,7 @@ class pagamentos extends aluno{
     private $TotalDesconto;
     private $Valor_total;
     private $Situacao_pgt;
+    private $situacao;
             
     function getId_pgt() {
         return $this->id_pgt;
@@ -122,6 +123,34 @@ class pagamentos extends aluno{
         $this->Situacao_pgt = $Situacao_pgt;
     }
     
+    function getSituacao() {
+        return $this->situacao;
+    }
+
+        
+    public function statusPgt(aluno $pgt) {
+        
+        $coluna5=['id_pgt'=>'id_pgt',
+                  'id_aluno'=>'id_aluno',
+                  'aluno_pgt'=>'aluno_pgt',
+                  'nome'=>'nome',
+                  'data_pgt'=>'data_pgt',
+                  'ref_incial'=>'ref_incial',
+                  'ref_final'=>'ref_final',
+                  'valor'=>'valor',
+                  'desconto'=>'desconto'
+                ];
+           
+        $Termos5 =" inner join aluno a on aluno_pgt = a.id_aluno"
+                . " where aluno_pgt='{$pgt->getId_Aluno()}'";
+             
+                $ColumTable5 = [];
+                    
+       $this->ExRead("pagamentos p ", $coluna5, $Termos5, $ColumTable5, 6);
+        
+    }
+
+
     public function PgtEspecifico(pagamentos $pgt){
         $this->Tipo=0;
         
@@ -222,7 +251,7 @@ class pagamentos extends aluno{
             
     elseif($this->Tipo==2):
         $this->setValor_total( $this->getValor() - $this->getDesconto());
-                echo "<div class='dados-pgt-aluno' style='margin-left: 5%'><p>Data pagamento: " .date("d/m/Y", strtotime($this->getData_pgt()))."</p></div>"
+            echo "<div class='dados-pgt-aluno' style='margin-left: 5%'><p>Data pagamento: " .date("d/m/Y", strtotime($this->getData_pgt()))."</p></div>"
                 . "<div class='dados-pgt-aluno'><p>Mensalidade paga de: ".date("d/m/y", strtotime($this->getRef_inicial()))."</p></div>"
                 . "<div class='dados-pgt-aluno'><p> Até: " .date("d/m/y", strtotime($this->getRef_final()))."</p></div>"
                 . "<div class='dados-pgt-aluno' style='margin-left: 5%'><p>Valor: ". number_format($this->getValor(), 2,',','.')."</p></div>"
@@ -250,15 +279,12 @@ endwhile;
         endif;
         
     elseif($this->Tipo==6):
-        if($this->getValor()>0):
-            if($this->getRef_final() >= date('Y-m-d')):
-                 echo"<td style='width:20px; background-color:#2E8B57; border-radius:10px 2px 2px 10px;'> </td>";
-            else:
-                echo"<td style='width:20px; background-color:red; border-radius:10px 2px 2px 10px;'> </td>";
-            endif;
-        else:
-            echo"<td style='width:20px; background-color:orange; border-radius:10px 2px 2px 10px;'> </td>";
-        endif;
+        while ($col = $this->Read_1->fetch(PDO::FETCH_ASSOC)):
+            $this->Situacao_pgt= true;
+            $this->ref_inicial = $col['ref_incial'];
+            $this->ref_final = $col['ref_final'];
+            $this->data_pgt = $col['data_pgt'];
+        endwhile;
     elseif($this->Tipo==7):
         while ($col = $this->Read_1->fetch(PDO::FETCH_ASSOC)):
         

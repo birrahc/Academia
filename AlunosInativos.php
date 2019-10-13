@@ -25,12 +25,10 @@ endif;
 	<link rel="stylesheet" href="css/stylo_large.css">
     </head>
 	
-    <body>
-		
+    <body>	
         <header>
             <div id="banner"></div>
         </header>
-	
 	<main>
         <section>
             <div id="menu-lateral">
@@ -152,9 +150,8 @@ endif;
         </section>
 
 	</main>
-		
+        <div style="clear:both"></div>	
         <footer>
-		
         </footer>
     </body>
 </html>

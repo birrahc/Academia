@@ -8,7 +8,8 @@ class login extends aluno {
     private $Senha;
     private $RepeteSenha;
     private $Pemissao;
-    
+    private $VerificaLogin;
+            
     function getSenha() {
         return $this->Senha;
     }
@@ -30,6 +31,29 @@ class login extends aluno {
 
     function setPemissao($Pemissao) {
         $this->Pemissao = ((int) $Pemissao ? $Pemissao:'Favor preencher com nuneros');
+    }
+    
+    function getVerificaLogin() {
+        return $this->VerificaLogin;
+    }
+
+        
+    public function VerificaUsuario(login $login){
+        $Coluna = [
+                    'login' => 'login'
+                  ];
+        $Termos = " where login='{$login->getNome()}'";
+        
+        $ColumTable5 = [];
+        $this->ExRead("login", $Coluna, $Termos, $ColumTable5);
+        
+    }
+
+    public function Syntax() {
+           
+        while ($col = $this->Read->fetch(PDO::FETCH_ASSOC)):
+             $this->VerificaLogin = true;
+        endwhile;
     }
 
 }
