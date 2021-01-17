@@ -26,9 +26,9 @@ endif;
     </head>
 	
     <body>	
-        <header>
-            <div id="banner"></div>
-        </header>
+        <?php
+			require"barra.php";
+		?>
 	<main>
         <section>
             <div id="menu-lateral">

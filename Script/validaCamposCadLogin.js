@@ -35,10 +35,10 @@ function validacadlogin(){
 		document.formcadlogin.autorizacao.focus();
 		return false;
 	}
-        if(document.formcadlogin.autorizacao.value!="lracademia"){
+       /* if(document.formcadlogin.autorizacao.value!="@tl@s"){
 		alert("codigo de autorizão incorreta");
 		document.formcadlogin.autorizacao.focus();
 		return false;
-	}
+	}*/
 
 }

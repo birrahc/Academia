@@ -32,7 +32,7 @@ and open the template in the editor.
                             <p> <a href="CadastrarLogin.php"> Cadastrar Login</a> </p>
 			</div>
 			<div id="img-login">
-					<img src="imagens/simbolo-login.jpg">
+					<img src="imagens/atlaslogo.jpg">
 			</div>
 						
 		</div>

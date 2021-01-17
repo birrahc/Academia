@@ -8,7 +8,7 @@ $destino='';
 $cad='';
 if(isset($_POST['autorizacao'])):
     
-    if($_POST['autorizacao'] =='lracademia'):
+    if($_POST['autorizacao'] =='@tl@s'):
        //echo "auto Ok"; 
         if(isset($_POST['login'])):
           if(!empty($_POST['login'])):
