@@ -259,8 +259,26 @@ class pagamentos extends aluno{
                 . "<div class='dados-pgt-aluno'><p>Total pago: ". number_format($this->getValor_total(), 2,',','.')."</p></div>"
                 . "<div id='link-pgt'>"
                 . "<ul>"
+                     . "<li><a href='cadastrarPagamentos.php?aluno={$this->getId_Aluno()}'>Cadastrar</a></li>"
                     . "<li><a href='cadastrarPagamentos.php?id_pgt={$this->getId_pgt()}'>Editar</a></li>"
-                    . "<li><a href=''>Excluir</a></li>"
+                    . "<li>"
+                      . "<form action='deletarDados.php' method='POST' style='display:inline;'>"
+                            . "<input type='hidden' name='deleta' value='2'/>"
+                            . "<input type='hidden' name='aluno' value='{$this->getId_Aluno()}'/>"
+                            . "<input type='hidden' name='deletaPgt' value='{$this->getId_pgt()}'/>"
+                            . "<button type='submit' Onclick='return ConfirmDel();' style='border:none;'>Excluir</button>"
+                            . " <script>
+                            function ConfirmDel(){
+                                var x = confirm('Deseja realmente Excluir esse pagamento ?');
+                                    if (x){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                            }
+                                    </script>"
+                      . "</form>"
+                    . "</li>"
                 . "</ul>"
                 . "</div>";
             

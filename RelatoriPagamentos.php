@@ -13,16 +13,16 @@
        
 ?>
 <html>
-    <header>
+    <head>
 	<title></title>
         <meta charset="utf-8">
 	<link rel="stylesheet" href="css/stylo_large.css">
-    </header>
+    </head>
 	
     <body>
-        <?php
-			require"barra.php";
-		?>
+    <?php
+        require"barra.php";
+    ?>
 	
 	<main>
             <section>

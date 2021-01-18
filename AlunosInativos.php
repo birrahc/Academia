@@ -27,8 +27,8 @@ endif;
 	
     <body>	
         <?php
-			require"barra.php";
-		?>
+            require"barra.php";
+        ?>
 	<main>
         <section>
             <div id="menu-lateral">

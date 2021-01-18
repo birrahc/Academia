@@ -91,8 +91,8 @@
 		
 	</footer>
 		
-	<header>
-            <div id="banner"></div>
-	</header>
+	<?php
+           require 'barra.php';
+        ?>
     </body>
 </html>
